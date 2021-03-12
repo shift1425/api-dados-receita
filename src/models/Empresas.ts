@@ -1,5 +1,4 @@
-import {Column, CreateDateColumn, Entity, PrimaryColumn, OneToOne, JoinTable, JoinColumn} from "typeorm"
-import { Motivo } from './Motivo'
+import {Column, CreateDateColumn, Entity, PrimaryColumn} from "typeorm"
 
 
 @Entity("empresas")
