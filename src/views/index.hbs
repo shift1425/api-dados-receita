@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="content">
+        {{#each empresa}}
+        <table class="table-principal border">
+            <tbody>
+                <tr>
+                    <td>
+                        <table id="tb-header">
+                            <tr id="tr-tb-header">
+                                <td> <img id="brasao" src="/images/brasao2.gif" alt="Brasão"> </td>
+                                <td>
+                                    <p class="title-header">REPÚBLICA FEDERATIVA DO BRASIL</p>
+                                    <br>
+                                    <p class="title-header">CADASTRO NACIONAL DA PESSOA JURÍDICA</p>
+                                </td>
+                                <td>
+                                    <span>{{this.id}}</span>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <table class="border" id="tb-inscricao">
+                            <tr>
+                                <td>
+                                    <p class="title">NÚMERO DE INSCRIÇÃO</p>
+                                    <p>{{this.cnpj}}</p>
+                                    <p>{{this.matriz_filial}}</p>
+                                </td>
+                                <td id="title-inscricao" class="border-left">COMPROVANTE DE INSCRIÇÃO E DE
+                                    SITUAÇÃO
+                                    CADASTRAL</td>
+                                <td class="border-left">
+                                    <p class="title">DATA DE ABERTURA</p>
+                                    <p>{{this.data_inicio_ativ}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-nome-empresarial">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">NOME EMPRESARIAL</p>
+                                    <p>{{this.razao_social}}</p>
+
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-nome-fantasia">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">TÍTULO DO ESTABELECIMENTO (NOME DE FANTASIA)</p>
+                                    <p>{{this.nome_fantasia}}</p>
+                                </td>
+                                <td class="border">
+                                    <p class="title">PORTE</p>
+                                    <p>{{this.porte}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-atividade-principal">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">CÓDIGO E DESCRIÇÃO DA ATIVIDADE ECONÔMICA PRINCIPAL</p>
+                                    <p>64.22-1-00 - Bancos múltiplos, com carteira comercial</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-atividade-secundaria">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">CÓDIGO E DESCRIÇÃO DAS ATIVIDADES ECONÔMICAS SECUNDÁRIAS</p>
+                                    <p>64.99-9-99 - Outras atividades de serviços financeiros não especificadas
+                                        anteriormente</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-natureza-juridica">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">CÓDIGO E DESCRIÇÃO DA NATUREZA JURÍDICA</p>
+                                    <p>{{this.cod_nat_juridica}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-logradouro">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">LOGRADOURO</p>
+                                    <p>{{this.logradouro}}</p>
+                                </td>
+                                <td class="border">
+                                    <p class="title">NÚMERO</p>
+                                    <p>{{this.numero}}</p>
+                                </td>
+                                <td class="border complemento">
+                                    <p class="title">COMPLEMENTO</p>
+                                    <p>{{this.complemento}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-logradouro2">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">CEP</p>
+                                    <p>{{this.cep}}</p>
+                                </td>
+                                <td class="border">
+                                    <p class="title">BAIRRO/DISTRITO</p>
+                                    <p>{{this.bairro}}</p>
+                                </td>
+                                <td class="border">
+                                    <p class="title">MUNICÍPIO</p>
+                                    <p>{{this.municipio}}</p>
+                                </td>
+                                <td class="border">
+                                    <p class="title">UF</p>
+                                    <p>{{this.uf}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-contato">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">ENDEREÇO ELETRÔNICO</p>
+                                    <p>{{this.email}}</p>
+                                </td>
+                                <td class="border">
+                                    <p class="title">TELEFONE</p>
+                                    <p>({{this.ddd_1}}) {{empresa.telefone_1}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-efr">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">ENTE FEDERATIVO RESPONSÁVEL (EFR)</p>
+                                    <p><br/></p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-situacao-cadastral">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">SITUAÇÃO CADASTRAL</p>
+                                    <p>{{this.situacao}}</p>
+                                </td>
+                                <td class="border">
+                                    <p class="title">DATA DA SITUAÇÃO CADASTRAL</p>
+                                    <p>{{this.data_situacao}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-motivo-situacao-cadastral">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">MOTIVO DE SITUAÇÃO CADASTRAL</p>
+                                    <p>{{this.motivo_situacao}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tb-situacao-especial">
+                            <tr>
+                                <td class="border">
+                                    <p class="title">SITUAÇÃO ESPECIAL</p>
+                                    <p>********</p>
+                                </td>
+                                <td class="border">
+                                    <p class="title">DATA DA SITUAÇÃO ESPECIAL</p>
+                                    <p>********</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+        {{/each}}
+    </div>
+</body>
+
+</html>

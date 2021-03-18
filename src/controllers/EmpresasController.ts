@@ -52,7 +52,11 @@ class EmpresasController {
 
         }))
 
-        return response.json(empresa)
+     
+        // console.log(empresa)
+      
+        return response.render("index",{empresa: empresa})
+        // return response.json(empresa)
 
     }
 }

@@ -5,6 +5,9 @@ import {Column, CreateDateColumn, Entity, PrimaryColumn} from "typeorm"
 
 class Empresas {
     @PrimaryColumn()
+    id: number
+
+    @Column()
     cnpj: string;
 
     @Column()
@@ -47,7 +50,7 @@ class Empresas {
     logradouro: string;
 
     @Column()
-    numero: number;
+    numero: string;
 
     @Column()
     complemento: string;
