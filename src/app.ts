@@ -24,9 +24,12 @@ app.use(router)
 app.use(
     (err:Error, request:Request, response:Response, _next: NextFunction) => {
         if(err instanceof AppError) {
-            return response.status(err.statusCode).json({
+            const message = {
                 message: err.message,
-            })
+            }
+
+            console.log(message)
+            return response.status(err.statusCode).render("error.hbs",{message})
         }
 
         return response.status(500).json({
