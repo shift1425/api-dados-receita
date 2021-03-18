@@ -20,7 +20,7 @@ class EmpresasController {
         try {
             await schema.validate(request.params, { abortEarly: false })
         } catch (err) {
-            throw new AppError(err)
+            throw new AppError(err.message)
         }
 
         const empresa = await empresasRepository.find({cnpj});
