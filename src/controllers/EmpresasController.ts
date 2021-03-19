@@ -14,7 +14,10 @@ class EmpresasController {
 
         const { cnpj } = request.params
         const schema = yup.object().shape({
-            cnpj: yup.string().required().min(14).max(14)
+            cnpj: yup.string()
+            .min(14,"CNPJ INVÁLIDO, VERIFIQUE O CNPJ INFORMADO E TENTE NOVAMENTE")
+            .max(14,"CNPJ INVÁLIDO, VERIFIQUE O CNPJ INFORMADO E TENTE NOVAMENTE")
+            .required("POR FAVOR INFORME O NUMERO DO CNPJ")
         })
 
         try {

@@ -26,16 +26,17 @@ app.use(
         if(err instanceof AppError) {
             const message = {
                 message: err.message,
+                statuscode: err.statusCode,
             }
 
-            console.log(message)
             return response.status(err.statusCode).render("error.hbs",{message})
         }
-
-        return response.status(500).json({
-            status: "Error",
-            message: `Internal server error ${err.message}`
-        })
+        
+        const message = {
+            message:`Internal server error ${err.message}`,
+            statuscode:500,
+        }
+        return response.status(500).render("error.hbs",{message})
     }
 )
 
