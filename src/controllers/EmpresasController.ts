@@ -4,13 +4,16 @@ import { EmpresasRepository } from "../repository/EmpresasRepository"
 import { MotivosRepository } from "../repository/MotivosRepository"
 import { AppError } from '../errors/AppError';
 import * as yup from 'yup';
+import { CnaesRepository } from '../repository/CnaesRepository';
+import ConsultaCnaeIbge from '../services/ConsultaCnaeIbge';
 
 
 class EmpresasController {
     async show(request: Request, response: Response) {
-
+        
         const empresasRepository = getCustomRepository(EmpresasRepository);
         const motivosRepository = getCustomRepository(MotivosRepository);
+        const cnaesRepository = getCustomRepository(CnaesRepository)
 
         const { cnpj } = request.params
         const schema = yup.object().shape({
@@ -31,6 +34,7 @@ class EmpresasController {
             throw new AppError("CNPJ não encontrado", 400)
         }
 
+        const cnaes_secundarios = await cnaesRepository.find({cnpj});
 
         async function getMotivo(codMotivo) {
             const motivo = await motivosRepository.findOne({ codigoMotivo: codMotivo })
@@ -41,6 +45,13 @@ class EmpresasController {
                 return motivo.descricaoMotivo
             }
         }
+        await Promise.all(cnaes_secundarios.map(async (cnaes_secundarios) => {
+            const cnae = cnaes_secundarios.cnae
+            const descricao = await ConsultaCnaeIbge(cnae)
+            cnaes_secundarios.cnae = cnae + "-" + descricao
+            console.log(cnaes_secundarios.cnae)
+            
+        }))
 
         await Promise.all(empresa.map(async (empresa) => {
 
@@ -52,12 +63,9 @@ class EmpresasController {
             } else {
                 empresa.matriz_filial = "Filial"
             }
-
         }))
 
-     
-        // console.log(empresa)
-      
+
         return response.render("index",{empresa: empresa})
         // return response.json(empresa)
 
