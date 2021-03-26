@@ -1,0 +1,42 @@
+.content{
+    width: 98.2vw;
+    height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+img{
+    width: 300px;
+    height: 220px;
+}
+
+.message p {
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18pt;
+    font-weight: 500;
+    line-height: 30pt;
+    text-transform: uppercase;
+}
+
+.message p i {
+    color: #1c49fa;
+    font-size: 16pt;
+}
+
+
+
+.button-home .home{
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1c49fa;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14pt;
+    cursor: pointer;
+}

@@ -8,10 +8,16 @@
     text-transform: uppercase;
   }
 
+  input{
+      width: 100%;
+  }
+
 .content{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 .border{
@@ -34,36 +40,6 @@
     width: 360px;
 }
 
-.title{
-    font-size: 6pt;
-    font-weight: normal;
-}
-
-.table-principal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 640px;
-    height: 740px;
-    margin: auto;
-    
-
-}
-.table-principal table{
-    width: 600px;
-    margin: 10px;
-}
-
-.table-principal table tr td{
-    padding: 5px;
-    font-size: 8pt;
-    font-weight: 600;
-}
-
-.complemento {
-    width: 220px;
-}
-
 #tb-header{
     border:none;
 }
@@ -80,3 +56,61 @@
     justify-content: space-between;
 }
 
+.title{
+    font-size: 6pt;
+    font-weight: normal;
+    position: relative;
+    top:0
+}
+
+.table-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 640px;
+    margin: auto;
+}
+
+.table-principal table{
+    width: 600px;
+    margin: 10px;
+}
+
+.table-principal table tr td{
+    padding: 5px;
+    font-size: 8pt;
+    font-weight: 600;
+}
+
+.td-quite-small {
+    width: 90px;
+}
+
+.td-small {
+    width: 170px;
+}
+
+.td-medium{
+    width: 470px;
+}
+
+.input-small {
+    width: 100px;
+}
+
+.input-medium{
+    width: 470px;
+}
+
+.button{
+    margin: 30px;
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(16, 170, 241);
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14pt;
+    cursor: pointer;
+}

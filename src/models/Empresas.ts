@@ -1,11 +1,11 @@
-import {Column, CreateDateColumn, Entity, PrimaryColumn} from "typeorm"
-
+import {Column, CreateDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn} from "typeorm"
+import { Cnaes } from "./Cnaes";
 
 @Entity("empresas")
 
 class Empresas {
-    @PrimaryColumn()
-    id: number
+    @PrimaryGeneratedColumn("increment")
+    empresas_id: number
 
     @Column()
     cnpj: string;
@@ -42,6 +42,9 @@ class Empresas {
 
     @Column()
     cnae_fiscal: number;
+
+    @Column()
+    descricao_cnae_fiscal: string;
 
     @Column()
     tipo_logradouro: string;
@@ -118,6 +121,11 @@ class Empresas {
     @CreateDateColumn()
     data_sit_especial: Date;
 
+    @OneToMany( () => Cnaes, cnae => cnae.empresas, {
+        cascade: ['insert', 'update']
+    })
+    @JoinColumn({ name: 'empresas_id'})
+    cnaes: Cnaes[];
 
 }
 

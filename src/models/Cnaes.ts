@@ -1,10 +1,12 @@
-import {Column, Entity, PrimaryColumn} from "typeorm"
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from "typeorm"
+import { Empresas } from "./Empresas";
+
 
 @Entity("cnaes")
 
 class Cnaes {
-    @PrimaryColumn()
-    id: number;
+    @PrimaryGeneratedColumn("increment")
+    cnaes_id: number;
 
     @Column()
     cnpj: string;
@@ -15,6 +17,12 @@ class Cnaes {
     @Column()
     cnae: string;
 
+    @Column()
+    descricao_cnae: string;
+
+    @ManyToOne( () => Empresas, empresa => empresa.cnaes)
+    @JoinColumn({ name: 'empresas_id'})
+    empresas: Empresas;
 }
 
 export { Cnaes }

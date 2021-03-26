@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>API Dados Receita Federal CNPJ</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
     <div class="content">
-        {{#each empresa}}
         <table class="table-principal border">
             <tbody>
                 <tr>
@@ -25,32 +24,32 @@
                                     <p class="title-header">CADASTRO NACIONAL DA PESSOA JURÍDICA</p>
                                 </td>
                                 <td>
-                                    <span>{{this.id}}</span>
+                                    <span></span>
                                 </td>
                             </tr>
 
                         </table>
                         <table class="border" id="tb-inscricao">
-                            <tr>
-                                <td>
-                                    <p class="title">NÚMERO DE INSCRIÇÃO</p>
-                                    <p>{{this.cnpj}}</p>
-                                    <p>{{this.matriz_filial}}</p>
-                                </td>
-                                <td id="title-inscricao" class="border-left">COMPROVANTE DE INSCRIÇÃO E DE
-                                    SITUAÇÃO
-                                    CADASTRAL</td>
-                                <td class="border-left">
-                                    <p class="title">DATA DE ABERTURA</p>
-                                    <p>{{this.data_inicio_ativ}}</p>
-                                </td>
-                            </tr>
+                            <form action="/cnpj" method="POST">
+                                <tr>
+                                    <td class="td-small">
+                                        <p class="title">NÚMERO DE INSCRIÇÃO</p>
+                                        <input type="text" id="cnpj" name="cnpj">
+                                    </td>
+                                    <td id="title-inscricao" class="border-left">COMPROVANTE DE INSCRIÇÃO E DE
+                                        SITUAÇÃO
+                                        CADASTRAL</td>
+                                    <td class="border-left td-small">
+                                        <p class="title">DATA DE ABERTURA</p>
+                                        <input id="data_inicio_ativ" name="data_inicio_ativ" type="date" />
+                                    </td>
+                                </tr>
                         </table>
                         <table id="tb-nome-empresarial">
                             <tr>
                                 <td class="border">
                                     <p class="title">NOME EMPRESARIAL</p>
-                                    <p>{{this.razao_social}}</p>
+                                    <input id="razao_social" name="razao_social" type="text">
 
                                 </td>
                             </tr>
@@ -59,11 +58,11 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">TÍTULO DO ESTABELECIMENTO (NOME DE FANTASIA)</p>
-                                    <p>{{this.nome_fantasia}}</p>
+                                    <input id="nome_fantasia" name="nome_fantasia" type="text">
                                 </td>
-                                <td class="border">
+                                <td class="border td-quite-small">
                                     <p class="title">PORTE</p>
-                                    <p>{{this.porte}}</p>
+                                    <input id="porte" name="porte" type="text">
                                 </td>
                             </tr>
                         </table>
@@ -71,7 +70,7 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">CÓDIGO E DESCRIÇÃO DA ATIVIDADE ECONÔMICA PRINCIPAL</p>
-                                    <p>64.22-1-00 - Bancos múltiplos, com carteira comercial</p>
+                                    <input class="input-small" id="cnae_fiscal" name="cnae_fiscal" type="text"> - <input class="input-medium" id="descricao_cnae_fiscal" name="descricao_cnae_fiscal" type="text">
                                 </td>
                             </tr>
                         </table>
@@ -79,8 +78,7 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">CÓDIGO E DESCRIÇÃO DAS ATIVIDADES ECONÔMICAS SECUNDÁRIAS</p>
-                                    <p>64.99-9-99 - Outras atividades de serviços financeiros não especificadas
-                                        anteriormente</p>
+                                    <input class="input-small"  id="cnae[]" name="cnae[]" type="text"> - <input class="input-medium"  class="input-medium" id="descricao_cnae[]" name="descricao_cnae[]" type="text">
                                 </td>
                             </tr>
                         </table>
@@ -88,43 +86,43 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">CÓDIGO E DESCRIÇÃO DA NATUREZA JURÍDICA</p>
-                                    <p>{{this.cod_nat_juridica}}</p>
+                                    <input class="input-small" id="cod_nat_juridica" name="cod_nat_juridica" type="text"> - <input class="input-medium" id="descricao_nat_juridica" name="descricao_nat_juridica" type="text">
                                 </td>
                             </tr>
                         </table>
                         <table id="tb-logradouro">
                             <tr>
-                                <td class="border">
+                                <td class="border ">
                                     <p class="title">LOGRADOURO</p>
-                                    <p>{{this.logradouro}}</p>
+                                    <input type="text">
                                 </td>
-                                <td class="border">
+                                <td class="border td-quite-small">
                                     <p class="title">NÚMERO</p>
-                                    <p>{{this.numero}}</p>
+                                    <input id="numero" name="numero" type="text">
                                 </td>
-                                <td class="border complemento">
+                                <td class="border td-small">
                                     <p class="title">COMPLEMENTO</p>
-                                    <p>{{this.complemento}}</p>
+                                    <input type="text">
                                 </td>
                             </tr>
                         </table>
                         <table id="tb-logradouro2">
                             <tr>
-                                <td class="border">
+                                <td class="border td-quite-small">
                                     <p class="title">CEP</p>
-                                    <p>{{this.cep}}</p>
+                                    <input type="text">
                                 </td>
                                 <td class="border">
                                     <p class="title">BAIRRO/DISTRITO</p>
-                                    <p>{{this.bairro}}</p>
+                                    <input type="text">
                                 </td>
                                 <td class="border">
                                     <p class="title">MUNICÍPIO</p>
-                                    <p>{{this.municipio}}</p>
+                                    <input type="text">
                                 </td>
-                                <td class="border">
+                                <td class="border td-quite-small">
                                     <p class="title">UF</p>
-                                    <p>{{this.uf}}</p>
+                                    <input id="uf" name="uf" type="text">
                                 </td>
                             </tr>
                         </table>
@@ -132,11 +130,11 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">ENDEREÇO ELETRÔNICO</p>
-                                    <p>{{this.email}}</p>
+                                    <input type="text">
                                 </td>
                                 <td class="border">
                                     <p class="title">TELEFONE</p>
-                                    <p>({{this.ddd_1}}) {{empresa.telefone_1}}</p>
+                                    <p>() </p>
                                 </td>
                             </tr>
                         </table>
@@ -144,19 +142,19 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">ENTE FEDERATIVO RESPONSÁVEL (EFR)</p>
-                                    <p><br/></p>
+                                    <p><br /></p>
                                 </td>
                             </tr>
                         </table>
                         <table id="tb-situacao-cadastral">
                             <tr>
-                                <td class="border">
+                                <td class="border ">
                                     <p class="title">SITUAÇÃO CADASTRAL</p>
-                                    <p>{{this.situacao}}</p>
+                                    <input type="text">
                                 </td>
-                                <td class="border">
+                                <td class="border td-small">
                                     <p class="title">DATA DA SITUAÇÃO CADASTRAL</p>
-                                    <p>{{this.data_situacao}}</p>
+                                    <input type="date">
                                 </td>
                             </tr>
                         </table>
@@ -164,7 +162,7 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">MOTIVO DE SITUAÇÃO CADASTRAL</p>
-                                    <p>{{this.motivo_situacao}}</p>
+                                    <input type="text">
                                 </td>
                             </tr>
                         </table>
@@ -172,11 +170,11 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">SITUAÇÃO ESPECIAL</p>
-                                    <p>********</p>
+                                    <input type="text">
                                 </td>
-                                <td class="border">
+                                <td class="border td-small">
                                     <p class="title">DATA DA SITUAÇÃO ESPECIAL</p>
-                                    <p>********</p>
+                                    <input type="date">
                                 </td>
                             </tr>
                         </table>
@@ -186,7 +184,8 @@
             </tbody>
 
         </table>
-        {{/each}}
+         <button type="submit" class="button">Cadastrar</button>
+        </form>
     </div>
 </body>
 
