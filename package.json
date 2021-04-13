@@ -9,6 +9,7 @@
     "test": "set NODE_ENV=test | jest -i"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "@types/axios": "^0.14.0",
     "@types/request": "^2.48.5",
     "axios": "^0.21.1",
