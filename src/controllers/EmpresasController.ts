@@ -115,9 +115,7 @@ class EmpresasController {
                         cnae: yup.number().required("CNAE OBRIGATÓRIO"),
                         descricao_cnae: yup.string().required("DESCRIÇÃO OBRIGATÓRIA")
                     })
-                    
                 )
-
         })
 
         try {
@@ -125,8 +123,6 @@ class EmpresasController {
         } catch (err) {
             throw new AppError(err.message,404)
         }
-
-
         const empresasRepository = getCustomRepository(EmpresasRepository);
         const empresa = empresasRepository.create(request.body)
         await empresasRepository.save(empresa);
@@ -134,7 +130,6 @@ class EmpresasController {
             throw new AppError("Erro ao tentar salvar os dados!", 400)
         }
         return response.status(201).render("success");
-
     }
 
 }

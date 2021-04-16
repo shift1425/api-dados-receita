@@ -28,7 +28,7 @@ app.use(
                 message: err.message,
                 statuscode: err.statusCode,
             }
-
+            // return response.status(500).json({message})
             return response.status(err.statusCode).render("error.hbs",{message})
         }
         

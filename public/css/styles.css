@@ -44,6 +44,22 @@ form{
     line-height: 12pt;
 }
 
+.matriz_filial{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.matriz_filial div{
+    display: flex;
+    align-items: center;
+}
+
+input[type="radio"]{
+    width: 25px;
+}
+
 #title-inscricao{
     font-size:10pt;
     font-weight: bold;
