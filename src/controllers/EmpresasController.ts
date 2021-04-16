@@ -66,6 +66,7 @@ class EmpresasController {
 
     }
     async create(request: Request, response: Response){
+        console.log(request.body)
         const schema = yup.object().shape({
             cnpj: yup.string()
             .min(14,"CNPJ INVÁLIDO, VERIFIQUE O CNPJ INFORMADO E TENTE NOVAMENTE")

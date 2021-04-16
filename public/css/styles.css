@@ -11,7 +11,12 @@
   input{
       width: 100%;
   }
-
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .content{
     width: 100%;
@@ -104,6 +109,9 @@
 }
 
 .button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 30px;
     width: 300px;
     height: 50px;
@@ -113,5 +121,6 @@
     color: white;
     font-family: 'Ubuntu', sans-serif;
     font-size: 14pt;
+    font-weight: 700;
     cursor: pointer;
 }

@@ -11,9 +11,9 @@ const path = require('path');
 
 app.use(express.json())
 
-app.use(router)
+.use(express.urlencoded({ extended: true}))
 
-.use(express.urlencoded({ extended: true }))
+app.use(router)
 // utilizando os arquivos estáticos
 .use(express.static('public'))
 

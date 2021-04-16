@@ -14,30 +14,31 @@
 
 <body>
     <div class="content">
-        <table class="table-principal border">
-            <tbody>
-                <tr>
-                    <td>
-                        <table id="tb-header">
-                            <tr id="tr-tb-header">
-                                <td> <img id="brasao" src="/images/brasao2.gif" alt="Brasão"> </td>
-                                <td>
-                                    <p class="title-header">REPÚBLICA FEDERATIVA DO BRASIL</p>
-                                    <br>
-                                    <p class="title-header">CADASTRO NACIONAL DA PESSOA JURÍDICA</p>
-                                </td>
-                                <td>
-                                    <span></span>
-                                </td>
-                            </tr>
+        <form id="empresa" action="/cnpj" method="POST">
+            <table class="table-principal border">
+                <tbody>
+                    <tr>
+                        <td>
+                            <table id="tb-header">
+                                <tr id="tr-tb-header">
+                                    <td> <img id="brasao" src="/images/brasao2.gif" alt="Brasão"> </td>
+                                    <td>
+                                        <p class="title-header">REPÚBLICA FEDERATIVA DO BRASIL</p>
+                                        <br>
+                                        <p class="title-header">CADASTRO NACIONAL DA PESSOA JURÍDICA</p>
+                                    </td>
+                                    <td>
+                                        <span></span>
+                                    </td>
+                                </tr>
 
-                        </table>
-                        <table class="border" id="tb-inscricao">
-                            <form action="/cnpj" method="POST">
+                            </table>
+                            <table class="border" id="tb-inscricao">
+
                                 <tr>
                                     <td class="td-small">
                                         <p class="title">NÚMERO DE INSCRIÇÃO</p>
-                                        <input type="text" id="cnpj" name="cnpj">
+                                        <input type="text" id="cnpj" name="cnpj" />
                                     </td>
                                     <td id="title-inscricao" class="border-left">COMPROVANTE DE INSCRIÇÃO E DE
                                         SITUAÇÃO
@@ -47,147 +48,151 @@
                                         <input id="data_inicio_ativ" name="data_inicio_ativ" type="date" />
                                     </td>
                                 </tr>
-                        </table>
-                        <table id="tb-nome-empresarial">
-                            <tr>
-                                <td class="border">
-                                    <p class="title">NOME EMPRESARIAL</p>
-                                    <input id="razao_social" name="razao_social" type="text">
+                            </table>
+                            <table id="tb-nome-empresarial">
+                                <tr>
+                                    <td class="border">
+                                        <p class="title">NOME EMPRESARIAL</p>
+                                        <input id="razao_social" name="razao_social" type="text">
 
-                                </td>
-                            </tr>
-                        </table>
-                        <table id="tb-nome-fantasia">
-                            <tr>
-                                <td class="border">
-                                    <p class="title">TÍTULO DO ESTABELECIMENTO (NOME DE FANTASIA)</p>
-                                    <input id="nome_fantasia" name="nome_fantasia" type="text">
-                                </td>
-                                <td class="border td-quite-small">
-                                    <p class="title">PORTE</p>
-                                    <input id="porte" name="porte" type="text">
-                                </td>
-                            </tr>
-                        </table>
-                        <table id="tb-atividade-principal">
-                            <tr>
-                                <td class="border">
-                                    <p class="title">CÓDIGO E DESCRIÇÃO DA ATIVIDADE ECONÔMICA PRINCIPAL</p>
-                                    <input class="input-small" id="cnae_fiscal" name="cnae_fiscal" type="text"> - <input class="input-medium" id="descricao_cnae_fiscal" name="descricao_cnae_fiscal" type="text">
-                                </td>
-                            </tr>
-                        </table>
-                        <table id="tb-atividade-secundaria">
-                            <tr>
-                                <td class="border">
-                                    <p class="title">CÓDIGO E DESCRIÇÃO DAS ATIVIDADES ECONÔMICAS SECUNDÁRIAS</p>
-                                    <input class="input-small"  id="cnae[]" name="cnae[]" type="text"> - <input class="input-medium"  class="input-medium" id="descricao_cnae[]" name="descricao_cnae[]" type="text">
-                                </td>
-                            </tr>
-                        </table>
-                        <table id="tb-natureza-juridica">
-                            <tr>
-                                <td class="border">
-                                    <p class="title">CÓDIGO E DESCRIÇÃO DA NATUREZA JURÍDICA</p>
-                                    <input class="input-small" id="cod_nat_juridica" name="cod_nat_juridica" type="text"> - <input class="input-medium" id="descricao_nat_juridica" name="descricao_nat_juridica" type="text">
-                                </td>
-                            </tr>
-                        </table>
-                        <table id="tb-logradouro">
-                            <tr>
-                                <td class="border ">
-                                    <p class="title">LOGRADOURO</p>
-                                    <input type="text">
-                                </td>
-                                <td class="border td-quite-small">
-                                    <p class="title">NÚMERO</p>
-                                    <input id="numero" name="numero" type="text">
-                                </td>
-                                <td class="border td-small">
-                                    <p class="title">COMPLEMENTO</p>
-                                    <input type="text">
-                                </td>
-                            </tr>
-                        </table>
-                        <table id="tb-logradouro2">
-                            <tr>
-                                <td class="border td-quite-small">
-                                    <p class="title">CEP</p>
-                                    <input type="text">
-                                </td>
-                                <td class="border">
-                                    <p class="title">BAIRRO/DISTRITO</p>
-                                    <input type="text">
-                                </td>
-                                <td class="border">
-                                    <p class="title">MUNICÍPIO</p>
-                                    <input type="text">
-                                </td>
-                                <td class="border td-quite-small">
-                                    <p class="title">UF</p>
-                                    <input id="uf" name="uf" type="text">
-                                </td>
-                            </tr>
-                        </table>
-                        <table id="tb-contato">
-                            <tr>
-                                <td class="border">
-                                    <p class="title">ENDEREÇO ELETRÔNICO</p>
-                                    <input type="text">
-                                </td>
-                                <td class="border">
-                                    <p class="title">TELEFONE</p>
-                                    <p>() </p>
-                                </td>
-                            </tr>
-                        </table>
-                        <table id="tb-efr">
-                            <tr>
-                                <td class="border">
-                                    <p class="title">ENTE FEDERATIVO RESPONSÁVEL (EFR)</p>
-                                    <p><br /></p>
-                                </td>
-                            </tr>
-                        </table>
-                        <table id="tb-situacao-cadastral">
-                            <tr>
-                                <td class="border ">
-                                    <p class="title">SITUAÇÃO CADASTRAL</p>
-                                    <input type="text">
-                                </td>
-                                <td class="border td-small">
-                                    <p class="title">DATA DA SITUAÇÃO CADASTRAL</p>
-                                    <input type="date">
-                                </td>
-                            </tr>
-                        </table>
-                        <table id="tb-motivo-situacao-cadastral">
-                            <tr>
-                                <td class="border">
-                                    <p class="title">MOTIVO DE SITUAÇÃO CADASTRAL</p>
-                                    <input type="text">
-                                </td>
-                            </tr>
-                        </table>
-                        <table id="tb-situacao-especial">
-                            <tr>
-                                <td class="border">
-                                    <p class="title">SITUAÇÃO ESPECIAL</p>
-                                    <input type="text">
-                                </td>
-                                <td class="border td-small">
-                                    <p class="title">DATA DA SITUAÇÃO ESPECIAL</p>
-                                    <input type="date">
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-
-            </tbody>
-
-        </table>
-         <button type="submit" class="button"> <i class="fas fa-plus-circle"></i> Cadastrar</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="tb-nome-fantasia">
+                                <tr>
+                                    <td class="border">
+                                        <p class="title">TÍTULO DO ESTABELECIMENTO (NOME DE FANTASIA)</p>
+                                        <input id="nome_fantasia" name="nome_fantasia" type="text">
+                                    </td>
+                                    <td class="border td-quite-small">
+                                        <p class="title">PORTE</p>
+                                        <input id="porte" name="porte" type="text">
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="tb-atividade-principal">
+                                <tr>
+                                    <td class="border">
+                                        <p class="title">CÓDIGO E DESCRIÇÃO DA ATIVIDADE ECONÔMICA PRINCIPAL</p>
+                                        <input class="input-small" id="cnae_fiscal" name="cnae_fiscal" type="text"> -
+                                        <input class="input-medium" id="descricao_cnae_fiscal"
+                                            name="descricao_cnae_fiscal" type="text">
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="tb-atividade-secundaria">
+                                <tr>
+                                    <td class="border">
+                                        <p class="title">CÓDIGO E DESCRIÇÃO DAS ATIVIDADES ECONÔMICAS SECUNDÁRIAS</p>
+                                        <input class="input-small" id="cnae[]" name="cnae[]" type="text"> - <input
+                                            class="input-medium" class="input-medium" id="descricao_cnae[]"
+                                            name="descricao_cnae[]" type="text">
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="tb-natureza-juridica">
+                                <tr>
+                                    <td class="border">
+                                        <p class="title">CÓDIGO E DESCRIÇÃO DA NATUREZA JURÍDICA</p>
+                                        <input class="input-small" id="cod_nat_juridica" name="cod_nat_juridica"
+                                            type="text"> - <input class="input-medium" id="descricao_nat_juridica"
+                                            name="descricao_nat_juridica" type="text">
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="tb-logradouro">
+                                <tr>
+                                    <td class="border ">
+                                        <p class="title">LOGRADOURO</p>
+                                        <input type="text">
+                                    </td>
+                                    <td class="border td-quite-small">
+                                        <p class="title">NÚMERO</p>
+                                        <input id="numero" name="numero" type="text">
+                                    </td>
+                                    <td class="border td-small">
+                                        <p class="title">COMPLEMENTO</p>
+                                        <input type="text">
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="tb-logradouro2">
+                                <tr>
+                                    <td class="border td-quite-small">
+                                        <p class="title">CEP</p>
+                                        <input type="text">
+                                    </td>
+                                    <td class="border">
+                                        <p class="title">BAIRRO/DISTRITO</p>
+                                        <input type="text">
+                                    </td>
+                                    <td class="border">
+                                        <p class="title">MUNICÍPIO</p>
+                                        <input type="text">
+                                    </td>
+                                    <td class="border td-quite-small">
+                                        <p class="title">UF</p>
+                                        <input id="uf" name="uf" type="text">
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="tb-contato">
+                                <tr>
+                                    <td class="border">
+                                        <p class="title">ENDEREÇO ELETRÔNICO</p>
+                                        <input type="text">
+                                    </td>
+                                    <td class="border">
+                                        <p class="title">TELEFONE</p>
+                                        <p>() </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="tb-efr">
+                                <tr>
+                                    <td class="border">
+                                        <p class="title">ENTE FEDERATIVO RESPONSÁVEL (EFR)</p>
+                                        <p><br /></p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="tb-situacao-cadastral">
+                                <tr>
+                                    <td class="border ">
+                                        <p class="title">SITUAÇÃO CADASTRAL</p>
+                                        <input type="text">
+                                    </td>
+                                    <td class="border td-small">
+                                        <p class="title">DATA DA SITUAÇÃO CADASTRAL</p>
+                                        <input type="date">
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="tb-motivo-situacao-cadastral">
+                                <tr>
+                                    <td class="border">
+                                        <p class="title">MOTIVO DE SITUAÇÃO CADASTRAL</p>
+                                        <input type="text">
+                                    </td>
+                                </tr>
+                            </table>
+                            <table id="tb-situacao-especial">
+                                <tr>
+                                    <td class="border">
+                                        <p class="title">SITUAÇÃO ESPECIAL</p>
+                                        <input type="text">
+                                    </td>
+                                    <td class="border td-small">
+                                        <p class="title">DATA DA SITUAÇÃO ESPECIAL</p>
+                                        <input type="date">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="button"> <i class="fas fa-plus"></i> &nbsp Cadastrar</button>
         </form>
     </div>
 </body>
