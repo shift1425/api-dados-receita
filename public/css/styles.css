@@ -18,6 +18,10 @@ form{
     justify-content: center;
 }
 
+.header {
+    margin: 10px 0;
+}
+
 .content{
     width: 100%;
     height: 100%;
@@ -25,6 +29,7 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #F3F3F3;
 }
 .border{
     border: 1px solid black;
@@ -75,6 +80,7 @@ form{
     justify-content: center;
     width: 640px;
     margin: auto;
+    background-color: #FFF;
 }
 
 .table-principal table{
