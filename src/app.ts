@@ -9,9 +9,12 @@ createConnection();
 const app = express();
 const path = require('path');
 
-app.use(express.json())
-
+app
 .use(express.urlencoded({ extended: true}))
+
+.use(express.json())
+
+
 
 app.use(router)
 // utilizando os arquivos estáticos
