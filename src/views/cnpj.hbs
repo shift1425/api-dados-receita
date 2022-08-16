@@ -35,14 +35,14 @@
                                 <td>
                                     <p class="title">NÚMERO DE INSCRIÇÃO</p>
                                     <p>{{this.cnpj}}</p>
-                                    <p>{{this.matriz_filial}}</p>
+                                    <p>{{this.matriz}}</p>
                                 </td>
                                 <td id="title-inscricao" class="border-left">COMPROVANTE DE INSCRIÇÃO E DE
                                     SITUAÇÃO
                                     CADASTRAL</td>
                                 <td class="border-left">
                                     <p class="title">DATA DE ABERTURA</p>
-                                    <p>{{this.data_inicio_ativ}}</p>
+                                    <p>{{this.inicio}}</p>
                                 </td>
                             </tr>
                         </table>
@@ -59,7 +59,7 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">TÍTULO DO ESTABELECIMENTO (NOME DE FANTASIA)</p>
-                                    <p>{{this.nome_fantasia}}</p>
+                                    <p>{{this.fantasia}}</p>
                                 </td>
                                 <td class="border">
                                     <p class="title">PORTE</p>
@@ -71,7 +71,7 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">CÓDIGO E DESCRIÇÃO DA ATIVIDADE ECONÔMICA PRINCIPAL</p>
-                                    <p>{{this.cnae_fiscal}} - {{this.descricao_cnae_fiscal}}</p>
+                                    <p>{{this.cnae_fiscal}}</p>
                                 </td>
                             </tr>
                         </table>
@@ -79,9 +79,7 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">CÓDIGO E DESCRIÇÃO DAS ATIVIDADES ECONÔMICAS SECUNDÁRIAS</p>
-                                    {{#each this.cnaes}}
-                                    <p>{{this.cnae}} - {{this.descricao_cnae}}</p>
-                                    {{/each}}
+                                    
                                 </td>
                             </tr>
                         </table>
@@ -89,7 +87,7 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">CÓDIGO E DESCRIÇÃO DA NATUREZA JURÍDICA</p>
-                                    <p>{{this.cod_nat_juridica}}</p>
+                                    <p>{{this.natureza}}</p>
                                 </td>
                             </tr>
                         </table>
@@ -137,12 +135,12 @@
                                 </td>
                                 <td class="border">
                                     <p class="title">TELEFONE</p>
-                                    <p>({{this.ddd_1}}) {{this.telefone_1}}
+                                    <p>{{this.telefone_1}}
                                         {{#if this.telefone_2}}
-                                        / ({{this.ddd_2}}) {{this.telefone_2}}
+                                        /  {{this.telefone_2}}
                                         {{/if}}
                                         {{#if this.num_fax}}
-                                        / ({{this.ddd_fax}}) {{this.num_fax}}
+                                        /  {{this.num_fax}}
                                         {{/if}}
                                     </p>
                                 </td>
@@ -164,7 +162,7 @@
                                 </td>
                                 <td class="border">
                                     <p class="title">DATA DA SITUAÇÃO CADASTRAL</p>
-                                    <p>{{this.data_situacao}}</p>
+                                    <p>{{this.cdata_situacao}}</p>
                                 </td>
                             </tr>
                         </table>
@@ -180,16 +178,16 @@
                             <tr>
                                 <td class="border">
                                     <p class="title">SITUAÇÃO ESPECIAL</p>
-                                    {{#if this.sit_especial}}
-                                    <p>{{this.sit_especial}}</p>
+                                    {{#if this.situacao_especial}}
+                                    <p>{{this.situacao_especial}}</p>
                                     {{else}}
                                     <p>********</p>
                                     {{/if}}
                                 </td>
                                 <td class="border">
                                     <p class="title">DATA DA SITUAÇÃO ESPECIAL</p>
-                                    {{#if data_sit_especial}}
-                                    <p>{{data_sit_especial}}</p>
+                                    {{#if data_situacao_especial}}
+                                    <p>{{data_situacao_especial}}</p>
                                     {{else}}
                                     <p>********</p>
                                     {{/if}}

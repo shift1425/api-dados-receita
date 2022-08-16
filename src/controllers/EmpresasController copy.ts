@@ -3,13 +3,14 @@ import { getConnection, getCustomRepository } from "typeorm";
 import { EmpresasRepository } from "../repository/EmpresasRepository";
 import { MotivosRepository } from "../repository/MotivosRepository";
 import { AppError } from "../errors/AppError";
-import axios from "axios";
 import * as yup from "yup";
+import { Empresas } from "../models/Empresas";
 import ConsultaCnaeIbge from "../services/ConsultaCnaeIbge";
 const dateFormat = require('dateformat');
 
 class EmpresasController {
   async show(request: Request, response: Response) {
+    const empresasRepository = getCustomRepository(EmpresasRepository);
     const motivosRepository = getCustomRepository(MotivosRepository);
 
     const { cnpj } = request.params;
@@ -27,21 +28,22 @@ class EmpresasController {
       throw new AppError(err.message, 404);
     }
 
+    const cnpjs = await getConnection()
+      .createQueryBuilder()
+      .select("empresas_id")
+      .from(Empresas, "empresas")
+      .where("empresas.cnpj=:cnpj", { cnpj: cnpj })
+      .getRawMany();
 
-    const data_cnpj = await axios.get(`https://clicksistema.com.br/cnpj.json?cnpj=${cnpj}`).then(function (response) {
-     return response.data;
-    }).catch(function (error) {
-      console.error(error);
+    const empresa = await empresasRepository.findByIds(cnpjs, {
+      relations: ["cnaes"],
     });
-
-    
-    
-    // if (empresa.length === 0) {
-    //   throw new AppError(
-    //     "CNPJ não encontrado, verifique e tente novamente!",
-    //     404
-    //   );
-    // }
+    if (empresa.length === 0) {
+      throw new AppError(
+        "CNPJ não encontrado, verifique e tente novamente!",
+        404
+      );
+    }
 
     async function getMotivo(codMotivo) {
       const motivo = await motivosRepository.findOne({
@@ -56,16 +58,25 @@ class EmpresasController {
     }
 
     await Promise.all(
-      data_cnpj.map(async (empresa) => {
-        console.log(empresa.motivo_situacao);
+      empresa.map(async (empresa) => {
         const situacao = await getMotivo(empresa.motivo_situacao);
-        const cnae = await ConsultaCnaeIbge(empresa.cnae_fiscal.substring(0, 5));
         empresa.motivo_situacao = situacao;
-        empresa.cnae_fiscal = cnae
+        empresa.data_situacao = dateFormat(empresa.data_situacao, 'dd/mm/yyyy')
+        empresa.data_inicio_ativ = dateFormat( empresa.data_inicio_ativ, 'dd/mm/yyyy')
+        empresa.data_opc_simples = dateFormat( empresa.data_opc_simples, 'dd/mm/yyyy')
+        empresa.data_exc_simples = dateFormat( empresa.data_exc_simples, 'dd/mm/yyyy')
+        empresa.data_sit_especial = dateFormat( empresa.data_sit_especial, 'dd/mm/yyyy')
+
+        await Promise.all(
+          empresa.cnaes.map(async (cnaes) => {
+            const cnae = cnaes.cnae.substring(0, 5);
+            cnaes.descricao_cnae = await ConsultaCnaeIbge(cnae);
+          })
+        );
       })
     );
-    // return response.json(data_cnpj);
-    return response.render("cnpj", { empresa: data_cnpj });
+    return response.json(empresa);
+    // return response.render("cnpj", { empresa: empresa });
     // return response.json(empresa)
   }
   async create(request: Request, response: Response) {
